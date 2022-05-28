@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
-import './App.css';
+import './app.scss';
 import { requestsspoon } from '../../request/request';
-import { Routes, Route } from 'react-router-dom';
-import Menu from '../Menu/Menu'
+import Menu from '../Menu/Menu';
+import Page from '../Page/Page';
+
 
 function App() {
 
@@ -29,11 +30,7 @@ function App() {
   return (
     <div className="App">
       <Menu />
-      {/* <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
-      </Routes> */}
-
+      <Page />
     </div>
   );
 }

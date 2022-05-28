@@ -1,7 +1,44 @@
-.title-menu{
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: orange;
+    text-decoration: none;
+    font-family: 'Architects Daughter', 'cursive';
+    font-style: oblique;
+    padding-right: 2%;
+    width: 10vw;
+  
+    &-link {
+      display: block;
+      
+
+      transition: color .2s, box-shadow .4s;
+      color: black;
+  
+      &:hover:not(&--active) {
+        color: black;
+      }
+  
+      &--active {
+        color: black;
+        box-shadow: inset -3px 0 0 black;
+      }
+    }
+}
+
+.nav-items{
+    display: flex;
     width: 100%;
-    text-align:"center";
-    color: black;
-    font-style: italic;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+@media screen and (max-width: 900px) {
+    .menu {
+        width: 18vw;
+    }
+    .nav-items{
+        display: flex;
+        flex-direction: column;
+    }
 }
