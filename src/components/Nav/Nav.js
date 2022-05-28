@@ -1,14 +1,5 @@
 import * as React from 'react';
-import { styled, useTheme } from '@mui/material/styles';
-
-import List from '@mui/material/List';
-
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import './menu.scss';
-
+import './nav.scss';
 import HomeIcon from '@mui/icons-material/Home';
 import TakeoutDiningIcon from '@mui/icons-material/TakeoutDining';
 import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
@@ -22,7 +13,7 @@ import classNames from 'classnames';
 // on centralise la fonction pour gerer nos class dans les NavLink
 const getMenuClass = ({ isActive }) => classNames('menu-link', { 'menu-link--active': isActive }); // `menu-link ${isActive ? 'menu-link--active' : ''}`
 
-export default function PersistentDrawerLeft() {
+function Nav() {
 
 
   return (
@@ -41,26 +32,26 @@ export default function PersistentDrawerLeft() {
       </NavLink>
   
       <NavLink
-          to="reciepies"
+          to="recipes"
           className={getMenuClass}
       >
       
         <div className="nav-items">
           <TakeoutDiningIcon />
-          <div>Reciepies</div>
+          <div>Recipes</div>
         </div>
             
       </NavLink>
 
       <NavLink
-          to="reciepiesIdeas"
+          to="recipesIdeas"
           className={getMenuClass}
       >
         
            
         <div className="nav-items">
           <TipsAndUpdatesIcon />
-          <div>Reciepies ideas</div>
+          <div>Recipes ideas</div>
         </div>
             
            
@@ -80,3 +71,5 @@ export default function PersistentDrawerLeft() {
   </div>
   );
 }
+
+export default Nav;

@@ -1,0 +1,24 @@
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    margin-left: 5vw;
+    padding: 0;
+    height: 10vh;
+    color: black;
+    background-color: orange;   
+    font-family: 'Architects Daughter', 'cursive';
+    font-style: oblique;
+    font-size: 3.2vw;
+}
+
+@media screen and (max-width: 900px) {
+    .header{
+     font-size: 5.5vw;
+    }
+}

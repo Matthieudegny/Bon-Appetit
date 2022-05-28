@@ -1,5 +1,5 @@
-import Reciepes from '../Recipes/Recipies';
-import ReciepesIdeas from '../RecipiesIdeas/RecipiesIdeas';
+import Reciepes from '../Recipes/Recipes';
+import ReciepesIdeas from '../RecipesIdeas/RecipiesIdeas';
 import Fridge from '../Fridge/Fridge';
 import Home from '../Home/Home';
 import { Routes, Route } from 'react-router-dom';
@@ -9,8 +9,8 @@ function Content () {
         <div className="content">
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="reciepies" element={<Reciepes />} />
-                <Route path="reciepiesIdeas" element={<ReciepesIdeas />} />
+                <Route path="recipes" element={<Reciepes />} />
+                <Route path="recipesIdeas" element={<ReciepesIdeas />} />
                 <Route path="fridge" element={<Fridge />} />
             </Routes>
         </div>

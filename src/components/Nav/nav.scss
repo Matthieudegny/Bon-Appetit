@@ -4,41 +4,44 @@
     flex-direction: column;
     justify-content: space-evenly;
     background-color: orange;
-    text-decoration: none;
     font-family: 'Architects Daughter', 'cursive';
     font-style: oblique;
-    padding-right: 2%;
-    width: 10vw;
+    padding-right: 1%;
+    width: 11vw;
+    font-size: 1.5vw;
+    
   
     &-link {
       display: block;
       
-
-      transition: color .2s, box-shadow .4s;
+      text-decoration: none;
       color: black;
   
-      &:hover:not(&--active) {
-        color: black;
-      }
   
       &--active {
-        color: black;
-        box-shadow: inset -3px 0 0 black;
+        text-decoration: underline;
       }
     }
 }
 
 .nav-items{
     display: flex;
+    align-items: center;
     width: 100%;
 }
 
 @media screen and (max-width: 900px) {
-    .menu {
-        width: 18vw;
+    .menu{
+      padding-right: 0;
+      width: 12vw;
     }
+
     .nav-items{
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 2.5vw;
     }
 }

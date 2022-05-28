@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import './app.scss';
 import { requestsspoon } from '../../request/request';
-import Menu from '../Menu/Menu';
+import Nav from '../Nav/Nav';
 import Page from '../Page/Page';
 
 
@@ -19,17 +19,17 @@ function App() {
       }
   };
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    fetchResults();
-    //clean up
+  //   fetchResults();
+  //   //clean up
       
 
-  }, []);
+  // }, []);
 
   return (
     <div className="App">
-      <Menu />
+      <Nav />
       <Page />
     </div>
   );
