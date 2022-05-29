@@ -12,27 +12,27 @@ function Home() {
     <div className="container">
         <CardHome className="firstChild"
         image = {recipesImage}
-        description = {"Vous souhaitez obtenir une recette en particulier, nos chefs sont la pour vous"}
+        description = {"You know what you want to eat,and you want to get a recipe"}
         title = {'Recipes'}
         link = {'/recipes'}
         logo = {<TakeoutDiningIcon />}
-        nameLink = {"Recipes"}
+        nameLink = {"A particular recipe"}
         />
         <CardHome 
         image = {recipesIdeasImage}
-        description = {"Pas d'idées pour votre repas, découvrez nos suggestions"}
+        description = {"No ideas for your meal, discover our suggestions"}
         title = {'Recipes Ideas'}
         link = {'/recipesIdeas'}
         logo = {<TipsAndUpdatesIcon />}
-        nameLink = {"Recipes"}
+        nameLink = {"Recipe suggestions"}
         />
         <CardHome 
         image = {fridgeImage}
-        description = {"Il vous reste des aliments dans votre frigo mais vous ne savez pas quoi faire, laissez nous vous aider"}
+        description = {"You have specific ingredients, but you don't know how to cook"}
         title = {'Fridge'}
         link = {'/fridge'}
         logo = {<KitchenIcon />}
-        nameLink = {"Recipes"}
+        nameLink = {"A recipe based on your food"}
         />
     </div>
     )
