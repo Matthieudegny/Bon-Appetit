@@ -1,6 +1,6 @@
 import './recipes.scss'
-import React, { useState} from 'react';
-import { useDispatch } from 'react-redux';
+import React, {useState} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { requestsRecipe } from '../../request/request';
 import TextField from '@mui/material/TextField';
 import { actionFetchRecipes } from '../../actions/actions';
@@ -22,17 +22,10 @@ function Recipes() {
     console.log("submit")
     dispatch(actionFetchRecipes(searchValue))
   }
-  //fetchResults(searchValue)
- 
 
-  // useEffect(() => {
+  const recipesList = useSelector((state) => state.recipesReducer.recipesList);
 
-  //   fetchResults();
-  //   //clean up
-      
-
-  // }, []);
-
+  console.log(recipesList)
 
   const resetValue = () => {
     setSearchValue("")

@@ -1,5 +1,6 @@
 import { FETCH_RECIPESLIST } from "../actions/actions";
 import { requestsRecipe } from "../request/request";
+import { actionSetRecipesList } from "../actions/actions";
 
 const recipesMiddleware = (store) => (next) => async (action) => {
     if(action.type === FETCH_RECIPESLIST){
@@ -9,8 +10,18 @@ const recipesMiddleware = (store) => (next) => async (action) => {
 
         try{
             console.log("fetch gone")
-            const result = await requestsRecipe(searchValue);
-            console.log(result)
+            const recipesList = await requestsRecipe(searchValue);
+           console.log(recipesList)
+            if(recipesList.status === 200){
+                store.dispatch(
+                    actionSetRecipesList(recipesList.data.results)
+                )
+            }
+            else{
+                console.log("erreur avec la requête")
+                //trouver quelqeu chose à renvoyer ici pour afficher erreur
+            }
+
         }
         catch(err) {
             console.log(err)
