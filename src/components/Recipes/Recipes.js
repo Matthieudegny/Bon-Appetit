@@ -1,8 +1,14 @@
 import './recipes.scss'
-import React, { useState } from 'react';
+import React, { useState} from 'react';
+import { useDispatch } from 'react-redux';
+import { requestsRecipe } from '../../request/request';
 import TextField from '@mui/material/TextField';
+import { actionFetchRecipes } from '../../actions/actions';
 
-function Recipes({onSubmit}) {
+function Recipes() {
+
+  const dispatch = useDispatch();
+
 
   const [searchValue, setSearchValue] = useState('');
 
@@ -13,8 +19,20 @@ function Recipes({onSubmit}) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit(searchValue);
+    console.log("submit")
+    dispatch(actionFetchRecipes(searchValue))
   }
+  //fetchResults(searchValue)
+ 
+
+  // useEffect(() => {
+
+  //   fetchResults();
+  //   //clean up
+      
+
+  // }, []);
+
 
   const resetValue = () => {
     setSearchValue("")

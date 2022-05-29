@@ -12,6 +12,7 @@ function Content () {
                 <Route path="recipes" element={<Reciepes />} />
                 <Route path="recipesIdeas" element={<ReciepesIdeas />} />
                 <Route path="fridge" element={<Fridge />} />
+                {/* <Route path="*" element={<Error />} /> */}
             </Routes>
         </div>
 

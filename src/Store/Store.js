@@ -1,9 +1,15 @@
-import { createStore } from 'redux';
-import messagesReducer from '../reducers/Reducer';
+import {
+  createStore, applyMiddleware, compose,
+} from 'redux';
+import reducer from '../reducers';
+import middlewareRecipes from './middleware';
 
-const store = createStore(
-  messagesReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), // pour permettre au redux dev tool de fonctionner
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const enhancers = composeEnhancers(
+  applyMiddleware(middlewareRecipes),
 );
+
+const store = createStore(reducer,enhancers);
 
 export default store;
