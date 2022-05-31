@@ -1,7 +1,7 @@
-import Reciepes from '../Recipes/Recipes';
-import ReciepesIdeas from '../RecipesIdeas/RecipiesIdeas';
-import Fridge from '../Fridge/Fridge';
-import Home from '../Home/Home';
+import Reciepes from './Recipes/Recipes';
+import ReciepesIdeas from './RecipesIdeas/RecipiesIdeas';
+import Fridge from './Fridge/Fridge';
+import Home from './Home/Home';
 import { Routes, Route } from 'react-router-dom';
 
 function Content () {

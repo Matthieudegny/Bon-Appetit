@@ -2,12 +2,20 @@ import axios from 'axios';
 
 export async function requestsRecipe(searchValue) {
     try {
-        const APIKEY = "9aaebbeca05644af8ed5cc2c16e4508e";
+      const APIKEY = "9aaebbeca05644af8ed5cc2c16e4508e";
+
       //https://docs.github.com/en/rest/search#search-repositories
-      const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=pasta&number=4&apiKey=${APIKEY}`);
-      const response2 = await axios.get(`https://api.spoonacular.com/recipes/654959/information?includeNutrition=false&apiKey=${APIKEY}`);
-      console.log(response, response2);
-      return response
+      const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=beef&number=5&apiKey=${APIKEY}`);
+      const recipes = response.data.results
+      let recipesList = [];
+
+      for(const recipe of recipes){
+        const response2 = await axios.get(`https://api.spoonacular.com/recipes/${recipe.id}/information?includeNutrition=true&apiKey=${APIKEY}`);
+        //attention response2.data.instructions peut être null, sans recette
+        recipesList.push(response2)
+      }      
+     
+      return recipesList
     }
     catch (err) {
       console.error(err);
@@ -22,6 +30,8 @@ export async function requestsRecipe(searchValue) {
 //https://foodista.com/recipe/ZHK4KPB6/chocolate-crinkle-cookies
 //recette par nom
 //https://api.spoonacular.com/recipes/extract?url=https://foodista.com/recipe/ZHK4KPB6/chocolate-crinkle-cookies
+//Autocomplete Recipe Search
+//https://api.spoonacular.com/recipes/autocomplete?number=10&query=chick
 
 //recette par "search recipes"
 //https://api.spoonacular.com/recipes/complexSearch?query=pasta&number=4&apiKey=${APIKEY}

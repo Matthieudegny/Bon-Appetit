@@ -51,7 +51,7 @@ function Nav() {
            
         <div className="nav-items">
           <TipsAndUpdatesIcon />
-          <div>Recipes ideas</div>
+          <div>Suggestions</div>
         </div>
             
            

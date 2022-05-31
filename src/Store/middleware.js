@@ -11,10 +11,10 @@ const recipesMiddleware = (store) => (next) => async (action) => {
         try{
             console.log("fetch gone")
             const recipesList = await requestsRecipe(searchValue);
-           console.log(recipesList)
-            if(recipesList.status === 200){
+           
+            if(recipesList){
                 store.dispatch(
-                    actionSetRecipesList(recipesList.data.results)
+                    actionSetRecipesList(recipesList)
                 )
             }
             else{

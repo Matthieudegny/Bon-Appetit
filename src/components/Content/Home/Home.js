@@ -3,9 +3,9 @@ import TakeoutDiningIcon from '@mui/icons-material/TakeoutDining';
 import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
 import KitchenIcon from '@mui/icons-material/Kitchen';
 import CardHome from './CardHome/CardHome'
-import fridgeImage from '../../public/fridge.jpg'
-import recipesImage from '../../public/recipes.jpg'
-import recipesIdeasImage from '../../public/recipesideas.jpg'
+import fridgeImage from '../../../public/fridge.jpg'
+import recipesImage from '../../..//public/recipes.jpg'
+import recipesIdeasImage from '../../../public/recipesideas.jpg'
 
 function Home() {
     return(
@@ -21,7 +21,7 @@ function Home() {
         <CardHome 
         image = {recipesIdeasImage}
         description = {"No ideas for your meal, discover our suggestions"}
-        title = {'Recipes Ideas'}
+        title = {'Suggestions'}
         link = {'/recipesIdeas'}
         logo = {<TipsAndUpdatesIcon />}
         nameLink = {"Recipe suggestions"}

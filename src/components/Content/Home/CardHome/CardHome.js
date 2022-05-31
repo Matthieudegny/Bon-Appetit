@@ -5,6 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import { NavLink } from 'react-router-dom';
+import ButtonBase from '@mui/material/ButtonBase';
 import PropTypes from 'prop-types';
 import './cardHome.scss'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -33,38 +34,33 @@ const theme = createTheme({
 
     return (
       <ThemeProvider theme={theme}>
-        <Card className='card'>
-          <CardActionArea>
-            <CardMedia
-              className='card-image'
-              component="img"
-              image= {image}
-              alt={image}
-            />
-            <CardContent>
-              <Typography className="card-title" gutterBottom variant="h4" component="div">
-                {title}
-              </Typography>
+        <NavLink to={link} className='card'>
+          <Card>
 
-              
+            <CardActionArea>
+              <CardMedia
+                className='card-image'
+                component="img"
+                image= {image}
+                alt={image}
+            />
+
+              <CardContent>
+
+                <Typography className="card-title" gutterBottom variant="h4" component="div">
+                  {title}
+                </Typography>    
+
                 <Typography className="card-description" variant="body2" color="text.secondary">
                 {description}
                 </Typography>
-            
+                
+              </CardContent>
 
-            </CardContent>
-          </CardActionArea>
-          <CardActions>
-          <NavLink
-          className="card-link"
-          to={link}
-          >
-            <Button className="test" size="small" color="primary">
-                  {logo} {nameLink}
-            </Button>
-          </NavLink>
-          </CardActions>
-        </Card>
+            </CardActionArea>
+
+          </Card>
+        </NavLink>
       </ThemeProvider>
     )
 }

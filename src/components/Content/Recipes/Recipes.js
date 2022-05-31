@@ -1,9 +1,8 @@
 import './recipes.scss'
 import React, {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { requestsRecipe } from '../../request/request';
 import TextField from '@mui/material/TextField';
-import { actionFetchRecipes } from '../../actions/actions';
+import { actionFetchRecipes } from '../../../actions/actions';
 
 function Recipes() {
 
@@ -24,7 +23,6 @@ function Recipes() {
   }
 
   const recipesList = useSelector((state) => state.recipesReducer.recipesList);
-
   console.log(recipesList)
 
   const resetValue = () => {
@@ -34,18 +32,20 @@ function Recipes() {
     return(
       <div className="recipe">
           
-            <form action="" className="recipe-inputContainer" onSubmit={handleSubmit}>
+            <form action="" autocomplete="off" className="recipe-inputContainer" onSubmit={handleSubmit}>
               <TextField 
               onChange={handleSearchChange}
               onSubmit={handleSubmit}
               onClick={resetValue}
               className='recipe-input' 
               id="outlined-uncontrolled"
-              inputProps={{style: {fontFamily: 'Architects Daughter',fontSize:"20px"}}} // font size of input text
-              InputLabelProps={{style: {fontFamily: 'Architects Daughter',fontSize:"2vw"}}} // font size of input label
-              label="Write here the recipe you need" 
+              inputProps={{style: {backgroundColor:"transparent",fontFamily: 'Architects Daughter',fontSize:"2vw"}}} // font size of input text
+              InputLabelProps={{style: {fontFamily: 'Architects Daughter',fontSize:"1.75vw",paddingLeft:"5%", paddingBottom:"30%"}}} // font size of input label
+              label="Write here the recipe you need..." 
               variant="standard"
-              color="warning" />
+              color="warning"
+              margin="dense"
+              size="normal" />
             </form>
           
       </div>
