@@ -5,7 +5,7 @@ export async function requestsRecipe(searchValue) {
       const APIKEY = "9aaebbeca05644af8ed5cc2c16e4508e";
 
       //https://docs.github.com/en/rest/search#search-repositories
-      const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=beef&number=5&apiKey=${APIKEY}`);
+      const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${searchValue}&number=3&apiKey=${APIKEY}`);
       const recipes = response.data.results
       let recipesList = [];
 

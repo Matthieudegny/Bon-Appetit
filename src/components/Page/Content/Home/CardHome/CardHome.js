@@ -15,8 +15,6 @@ function CardHome ({
     description,
     title,
     link,
-    logo,
-    nameLink
 
 }) {
 

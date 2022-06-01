@@ -2,7 +2,7 @@ import './recipes.scss'
 import React, {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TextField from '@mui/material/TextField';
-import Container from '@mui/material/Container';
+import CardRecipes from './CardRecipes/CardRecipes';
 import { actionFetchRecipes } from '../../../../actions/actions';
 
 function Recipes() {
@@ -40,7 +40,7 @@ function Recipes() {
           onClick={resetValue}
           className='recipe-input' 
           id="outlined-uncontrolled"
-          inputProps={{style: {backgroundColor:"transparent",fontFamily: 'Architects Daughter',fontSize:"2.5vw"}}} // font size of input text
+          inputProps={{style: {backgroundColor:"transparent",textAlign:"center",fontSize:"2vw",paddingTop:"4%"}}} // font size of input text
           InputLabelProps={{style: {fontFamily: 'Architects Daughter',fontSize:"2vw",paddingLeft:"15%"}}} // font size of input label
           label="Write here the recipe you need" 
           variant="standard"
@@ -48,8 +48,22 @@ function Recipes() {
           margin="dense"
           size="normal" />
         </form>
-        
-          
+
+        <div>
+          {recipesList.map(({
+            data
+          }) => (
+            <CardRecipes 
+        key = {data.id}
+        ingredients = {data.extendedIngredients}
+        image = {data.image}
+        time = {data.readyInMinutes}
+        title = {data.title}
+        explanations = {data.instructions? data.instructions : data.summary}
+        /> 
+          ))}
+        </div>
+
       </div>
     )
 }

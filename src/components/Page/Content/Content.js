@@ -4,6 +4,7 @@ import Fridge from './Fridge/Fridge';
 import Home from './Home/Home';
 import { Routes, Route } from 'react-router-dom';
 
+
 function Content () {
     return (
         <div className="content">
