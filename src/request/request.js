@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export async function requestsRecipe(searchValue) {
+export async function requestsRecipe(searchValue,setLoading) {
     try {
       const APIKEY = "9aaebbeca05644af8ed5cc2c16e4508e";
 
@@ -15,7 +15,9 @@ export async function requestsRecipe(searchValue) {
         recipesList.push(response2)
       }      
      
+      console.log(recipesList)
       return recipesList
+      
     }
     catch (err) {
       console.error(err);

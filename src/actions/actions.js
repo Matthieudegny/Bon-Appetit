@@ -1,5 +1,7 @@
 export const FETCH_RECIPESLIST = 'FETCH_RECIPESLIST';
 export const SET_RECIPES = 'SET_RECIPES';
+export const SET_LOADING_TRUE = 'SET_LOADING_TRUE'
+export const SET_LOADING_FALSE = 'SET_LOADING_FALSE'
 
 export const actionFetchRecipes = (searchValue) => ({
   type: FETCH_RECIPESLIST,
@@ -14,4 +16,12 @@ export const actionFetchRecipes = (searchValue) => ({
  export const actionSetRecipesList = (recipesList) => ({
   type: SET_RECIPES,
   payload: recipesList,
+});
+
+export const actionLoadingTrue = () => ({
+  type: SET_LOADING_TRUE,
+});
+
+export const actionLoadingFalse = () => ({
+  type: SET_LOADING_FALSE,
 });

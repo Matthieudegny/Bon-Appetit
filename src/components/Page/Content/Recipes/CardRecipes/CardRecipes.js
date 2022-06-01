@@ -52,11 +52,6 @@ function CardRecipes ({
 
             </div>
 
-            
-
-           
-            
-
         </div>
     )
 }

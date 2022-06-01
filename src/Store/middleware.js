@@ -1,6 +1,7 @@
 import { FETCH_RECIPESLIST } from "../actions/actions";
 import { requestsRecipe } from "../request/request";
 import { actionSetRecipesList } from "../actions/actions";
+//import { actionLoadingFalse } from '../actions/actions';
 
 const recipesMiddleware = (store) => (next) => async (action) => {
     if(action.type === FETCH_RECIPESLIST){
@@ -14,7 +15,8 @@ const recipesMiddleware = (store) => (next) => async (action) => {
            
             if(recipesList){
                 store.dispatch(
-                    actionSetRecipesList(recipesList)
+                    actionSetRecipesList(recipesList),
+                    //actionLoadingFalse
                 )
             }
             else{

@@ -1,7 +1,10 @@
 import { SET_RECIPES } from '../actions/actions';
+import { SET_LOADING_TRUE } from '../actions/actions';
+import { SET_LOADING_FALSE } from '../actions/actions';
 
 const initialState = {
-    recipesList : []
+    recipesList : [],
+    loading: false
   };
   
   function Reducer(state = initialState, action) {
@@ -11,8 +14,15 @@ const initialState = {
         return {
           ...state,
           recipesList: action.payload,
+          loading:false,
         };
 
+      case SET_LOADING_TRUE:
+        return {
+          ...state,
+          loading: true,
+        };
+        
       default:
         return state;
     }

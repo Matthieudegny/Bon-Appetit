@@ -1,6 +1,6 @@
 .cardRecipes{
     padding: 3%;
-    width: 90%;
+    margin: 0;
     font-size: 1.5vw;
 
     &-header{
@@ -75,8 +75,27 @@
 }
 
 @media screen and (max-width: 900px) {
+    .cardRecipes-header{
+        flex-direction: column;
+    }
+    .cardRecipes-body{
+        flex-direction: column;
 
-    .cardRecipes{
-        padding-left: 3%;
+        &-left{
+            text-align: center;
+            width: 100%;
+
+            li{
+                list-style-type: none;
+                padding: 1%;
+            }
+        }
+
+        &-right{
+            width: 100%;
+        }
+    }
+    .cardRecipes-image{
+        max-width: 100%;
     }
 }
