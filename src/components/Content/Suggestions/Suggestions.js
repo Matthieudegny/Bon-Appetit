@@ -1,90 +1,165 @@
 import './suggestions.scss'
-import MenuBookIcon from '@mui/icons-material/MenuBook';
+import { actionFetchSuggestions } from '../../../actions/actions';
+import { actionLoadingSuggestionsTrue } from '../../../actions/actions';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Skeleton from '@mui/material/Skeleton';
+import CardRecipes from '../CardRecipes/CardRecipes';
 
 function ReciepesIdeas() {
 
-    let [valueSelected, setValueSelected] = useState(false)
+    const dispatch = useDispatch();
+
+    const [valueSelected, setValueSelected] = useState(false)
+    const [message, setMessage] = useState('')
 
     const handleSubmit = (event) => {
+
         event.preventDefault();
-        console.log(event)
-       console.log(event.target)
-       
-   
-     
+
+       if(!valueSelected){
+           setMessage("Before to search a recipe, please select a type of meal")
+       }
+       else{
+           setMessage("")
+           dispatch(actionLoadingSuggestionsTrue())
+           dispatch(actionFetchSuggestions(valueSelected))
+       }
       
     }
 
-    console.log(valueSelected)
+    const suggestions = useSelector((state) => state.suggestionsReducer.suggestions);
+    const loading = useSelector((state) => state.suggestionsReducer.loading);
+    //const messageError = useSelector((state) => state.suggestionsReducer.message)
+   
+    console.log(loading)
 
     return(
 
         <div className="suggestions">
 
-            <div>
-
-                
-
-                <div className='suggestions-inputs'>
-                    <input type="radio" name="search" onClick={() => setValueSelected("Lunch")} />
-                    <label >Lunch</label>
-                </div>
-
-                <div className='suggestions-inputs'>
-                    <input type="radio" name="search" onClick={() => setValueSelected("breakfast")}/>
-                    <label >Breakfast</label>
-                </div>
-
-            </div>
-
-            {/* <form action="" onSubmit={handleSubmit}>
+            <form action="" onSubmit={handleSubmit}>
 
                 <div className='suggestions-container-title'>
                     <p>Please Select the kind of meal you are searching</p>
                 </div>
 
+                <div className='suggestions-container-message'>
+                    <p>{message}</p>
+                </div>
+
                 <div className='suggestions-container-inputs'>
 
                     <div className='suggestions-inputs'>
-                        <input type="radio" name="breakfast" value="breakfast" id="breakfast" />
+                        <input type="radio" name="suggestion" onClick={() => setValueSelected("breakfast")}/>
                         <label htmlFor="breakfast">Breakfast</label>
                     </div>
 
                     <div className='suggestions-inputs'>
-                        <input type="radio" name="lunch" />
+                        <input type="radio" name="suggestion" onClick={() => setValueSelected("lunch")} />
                         <label htmlFor="lunch">Lunch</label>
                     </div>
 
                     <div className='suggestions-inputs'>
-                        <input type="radio" name="dinner" />
+                        <input type="radio" name="suggestion" onClick={() => setValueSelected("dinner")}/>
                         <label htmlFor="dinner">Dinner</label>
                     </div>
 
                     <div className='suggestions-inputs'>
-                        <input type="radio" name="entree" />
+                        <input type="radio" name="suggestion" onClick={() => setValueSelected("entree")}/>
                         <label htmlFor="entree">Entree</label>
                     </div>
 
                     <div className='suggestions-inputs'>
-                        <input type="radio" name="main-dish" />
+                        <input type="radio" name="suggestion" onClick={() => setValueSelected("main-dish")}/>
                         <label htmlFor="main-dish">Main-dish</label>
                     </div>
 
                     <div className='suggestions-inputs'>
-                        <input type="radio" name="dessert" />
+                        <input type="radio" name="suggestion" onClick={() => setValueSelected("dessert")}/>
                         <label htmlFor="dessert">Dessert</label>
                     </div>
                     
                 </div>
 
-                <button 
-                type='submit'
-                className="suggestions-button">
-                    Search
-                </button>
+                <div className='suggestions-container-button'>
+                    <button 
+                    type='submit'
+                    className="suggestions-button">
+                        Search
+                    </button>
+                </div>
+               
 
-            </form> */}
+            </form>        
+
+
+            {loading ? (
+
+                [...Array(3)].map((_, index) => (
+
+                <div className="cardRecipes" key={index}>
+
+                    <div className="cardRecipes-header">
+                    <Skeleton variant="text" sx={{width:"30vw",height:"10vh",margin:"auto"}}/>
+
+                    <Skeleton variant="rectangular" sx={{width:"30vw", height:"30vh"}}/>
+                    
+                    </div>
+
+                    <div className="cardRecipes-body">
+                    <section className="cardRecipes-body-left" >
+
+                    <Skeleton variant="text" sx={{width:"15vw",height:"5vh",marginRight:"10%"}}/>
+                    
+                    <div className='cardRecipes-ingredients'>
+                        <Skeleton variant="text" sx={{width:"80%",height:"5vh",marginTop:"5vh"}}/>
+                        <Skeleton variant="text" sx={{width:"80%",height:"5vh"}}/>
+                        <Skeleton variant="text" sx={{width:"80%",height:"5vh"}}/>
+                        <Skeleton variant="text" sx={{width:"80%",height:"5vh"}}/>                    
+                    </div>
+
+                    </section>
+
+                    <section className="cardRecipes-body-right" >
+                        
+                        <Skeleton variant="text" sx={{width:"100%",height:"5vh",marginTop:"5vh"}}/>
+                        <Skeleton variant="text" sx={{width:"100%",height:"5vh"}}/>
+                        <Skeleton variant="text" sx={{width:"100%",height:"5vh"}}/>
+                        <Skeleton variant="text" sx={{width:"100%",height:"5vh"}}/>
+                        <Skeleton variant="text" sx={{width:"100%",height:"5vh"}}/>   
+                        
+                    </section>
+                    </div>
+
+                </div>
+                    
+                ))
+
+            ) : (
+
+                <div>
+                    {suggestions.map((suggestion) => (
+                        <CardRecipes 
+                        key = {suggestion.id}
+                        ingredients = {suggestion.extendedIngredients}
+                        image = {suggestion.image}
+                        time = {suggestion.readyInMinutes}
+                        title = {suggestion.title}
+                        explanations = {suggestion.instructions? suggestion.instructions : suggestion.summary}
+                        /> 
+                    ))}
+                </div>
+
+            )}
+
+
+
+                {/*ajouter bouton pour supprimer le contenu en haut + un suggestions aide? et un autre en bas pour retoruner à la recherceh*/}
+
+              
+
+
         </div>
     )
 }

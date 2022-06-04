@@ -31,8 +31,6 @@ function Recipes() {
   const recipesList = useSelector((state) => state.recipesReducer.recipesList);
   const loading = useSelector((state) => state.recipesReducer.loading);
   const message = useSelector((state) => state.recipesReducer.message)
-  if(message)console.log(message)
-
 
   const resetValue = () => {
     setSearchValue("")
@@ -68,6 +66,21 @@ function Recipes() {
           </>
 
         )}
+
+        <div>
+          {recipesList.map(({
+              data
+            }) => (
+            <CardRecipes 
+              key = {data.id}
+              ingredients = {data.extendedIngredients}
+              image = {data.image}
+              time = {data.readyInMinutes}
+              title = {data.title}
+              explanations = {data.instructions? data.instructions : data.summary}
+            /> 
+          ))}
+        </div>
 
 
 
