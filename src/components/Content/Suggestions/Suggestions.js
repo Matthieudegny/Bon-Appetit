@@ -29,10 +29,8 @@ function ReciepesIdeas() {
     }
 
     const suggestions = useSelector((state) => state.suggestionsReducer.suggestions);
-    const loading = useSelector((state) => state.suggestionsReducer.loading);
-    //const messageError = useSelector((state) => state.suggestionsReducer.message)
+    const loading = useSelector((state) => state.suggestionsReducer.loading);   
    
-    console.log(loading)
 
     return(
 
@@ -41,7 +39,7 @@ function ReciepesIdeas() {
             <form action="" onSubmit={handleSubmit}>
 
                 <div className='suggestions-container-title'>
-                    <p>Please Select the kind of meal you are searching</p>
+                    <p className='suggestions-container-title-p'>Please Select the kind of meal you are searching</p>
                 </div>
 
                 <div className='suggestions-container-message'>
