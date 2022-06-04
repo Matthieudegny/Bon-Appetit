@@ -1,0 +1,16 @@
+.suggestions{
+    &-container-title{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    p{
+        color: gray;
+        text-align: center;
+        font-size: 2vw;
+        border-bottom: 1px solid black;
+        padding: 2%;
+        padding-top: 1%;
+    }
+}
+

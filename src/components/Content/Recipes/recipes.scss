@@ -1,0 +1,28 @@
+.recipe{
+
+    &-message{
+        padding: 3%;
+        text-align: center;
+        
+    }
+
+    &-inputContainer{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &-input{
+        width: 50%;
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+
+    .recipe-input{
+        font-size: 4vw;
+    }
+}
+

@@ -1,10 +1,11 @@
 import { SET_RECIPES } from '../actions/actions';
 import { SET_LOADING_TRUE } from '../actions/actions';
-import { SET_LOADING_FALSE } from '../actions/actions';
+import { SET_MESSAGE_NULL } from '../actions/actions';
 
 const initialState = {
     recipesList : [],
-    loading: false
+    loading: false,
+    message: ''
   };
   
   function Reducer(state = initialState, action) {
@@ -15,6 +16,7 @@ const initialState = {
           ...state,
           recipesList: action.payload,
           loading:false,
+          message:'',
         };
 
       case SET_LOADING_TRUE:
@@ -22,6 +24,14 @@ const initialState = {
           ...state,
           loading: true,
         };
+
+      case SET_MESSAGE_NULL:
+        return {
+          ...state,
+          message: "Sorry, we didn't find any recipes, whrite something else, if you don't know the exact name of your recipe, \
+           just write the main ingredient, for exemple 'chicken, salmon, salad...",
+           loading:false,
+        }
         
       default:
         return state;

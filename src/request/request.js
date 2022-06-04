@@ -5,7 +5,7 @@ export async function requestsRecipe(searchValue,setLoading) {
       const APIKEY = "9aaebbeca05644af8ed5cc2c16e4508e";
 
       //https://docs.github.com/en/rest/search#search-repositories
-      const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${searchValue}&number=3&apiKey=${APIKEY}`);
+      const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${searchValue}&number=1&apiKey=${APIKEY}`);
       const recipes = response.data.results
       let recipesList = [];
 
@@ -15,7 +15,6 @@ export async function requestsRecipe(searchValue,setLoading) {
         recipesList.push(response2)
       }      
      
-      console.log(recipesList)
       return recipesList
       
     }
@@ -24,7 +23,7 @@ export async function requestsRecipe(searchValue,setLoading) {
       throw err;
     }
 
-  }
+}
 
 //https://api.spoonacular.com/food/products/search?query=yogurt&apiKey=${APIKEY}
 //https://api.spoonacular.com/recipes/complexSearch?query=${searchValue}&apiKey=${APIKEY}
@@ -45,3 +44,4 @@ export async function requestsRecipe(searchValue,setLoading) {
 
 //recette par ingrédient partie fridge
 //https://api.spoonacular.com/recipes/findByIngredients?ingredients=chicken&number=5&apiKey=${APIKEY}
+//https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples,+flour,+sugar&number=2

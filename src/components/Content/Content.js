@@ -1,5 +1,5 @@
 import Reciepes from './Recipes/Recipes';
-import ReciepesIdeas from './RecipesIdeas/RecipiesIdeas';
+import ReciepesIdeas from './Suggestions/Suggestions';
 import Fridge from './Fridge/Fridge';
 import Home from './Home/Home';
 import { Routes, Route } from 'react-router-dom';

@@ -1,12 +1,12 @@
 import './recipes.scss'
-import '../Recipes/CardRecipes/cardRecipes.scss'
+import '../CardRecipes/cardRecipes.scss'
 import React, {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TextField from '@mui/material/TextField';
-import CardRecipes from './CardRecipes/CardRecipes';
+import CardRecipes from '../CardRecipes/CardRecipes';
 import Skeleton from '@mui/material/Skeleton';
-import { actionFetchRecipes } from '../../../../actions/actions';
-import { actionLoadingTrue } from '../../../../actions/actions';
+import { actionFetchRecipes } from '../../../actions/actions';
+import { actionLoadingTrue } from '../../../actions/actions';
 
 
 function Recipes() {
@@ -15,7 +15,7 @@ function Recipes() {
 
 
   const [searchValue, setSearchValue] = useState('');
- 
+
 
   const handleSearchChange = (event) => {
     const { value } = event.target;
@@ -29,12 +29,13 @@ function Recipes() {
   }
 
   const recipesList = useSelector((state) => state.recipesReducer.recipesList);
-  console.log(recipesList)
-  const loading = useSelector((state) => state.recipesReducer.loading)
+  const loading = useSelector((state) => state.recipesReducer.loading);
+  const message = useSelector((state) => state.recipesReducer.message)
+  if(message)console.log(message)
+
 
   const resetValue = () => {
     setSearchValue("")
-    console.log("reset")
   }
 
     return(
@@ -56,6 +57,19 @@ function Recipes() {
           margin="dense"
           size="normal" />
         </form>
+
+        {message ? (
+
+          <div className='recipe-message'>{message}</div>
+
+        ) : (
+
+          <>
+          </>
+
+        )}
+
+
 
         {loading ? (
 

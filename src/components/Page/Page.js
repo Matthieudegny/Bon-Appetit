@@ -1,5 +1,5 @@
-import Header from './Header/Header';
-import Content from './Content/Content'
+import Header from '../Header/Header';
+import Content from '../Content/Content'
 
 import './page.scss';
 function Page () {
