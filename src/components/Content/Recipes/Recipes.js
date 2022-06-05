@@ -67,23 +67,6 @@ function Recipes() {
 
         )}
 
-        <div>
-          {recipesList.map(({
-              data
-            }) => (
-            <CardRecipes 
-              key = {data.id}
-              ingredients = {data.extendedIngredients}
-              image = {data.image}
-              time = {data.readyInMinutes}
-              title = {data.title}
-              explanations = {data.instructions? data.instructions : data.summary}
-            /> 
-          ))}
-        </div>
-
-
-
         {loading ? (
 
         [...Array(3)].map((_, index) => (

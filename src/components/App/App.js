@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import './app.scss';
 import Nav from '../Nav/Nav';
 import Page from '../Page/Page';

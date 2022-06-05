@@ -4,7 +4,7 @@ export async function requestsRecipe(searchValue) {
     try {
       const APIKEY = "9aaebbeca05644af8ed5cc2c16e4508e";
 
-      const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${searchValue}&number=1&apiKey=${APIKEY}`);
+      const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${searchValue}&number=3&apiKey=${APIKEY}`);
       const recipes = response.data.results
       let recipesList = [];
 
@@ -13,7 +13,7 @@ export async function requestsRecipe(searchValue) {
         //attention response2.data.instructions peut être null, sans recette
         recipesList.push(response2)
       }      
-      
+      console.log(recipesList)
       return recipesList
       
     }
@@ -32,6 +32,30 @@ export async function requestSuggestions(searchValue) {
 
     const suggestionsList = response.data.recipes
     return suggestionsList
+  }
+  catch(err){
+
+  }
+}
+
+export async function requestsRecipeFridge(searchValue) {
+
+  try{
+    const APIKEY = "9aaebbeca05644af8ed5cc2c16e4508e";
+  
+    const response = await axios.get(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${searchValue}&number=5&apiKey=${APIKEY}`);
+
+    const fridgeList = response.data
+
+    let recipesFridgeList = [];
+
+      for(const recipe of fridgeList){
+        const response2 = await axios.get(`https://api.spoonacular.com/recipes/${recipe.id}/information?includeNutrition=true&apiKey=${APIKEY}`);
+        //attention response2.data.instructions peut être null, sans recette
+        recipesFridgeList.push(response2)
+      }      
+    
+    return recipesFridgeList
   }
   catch(err){
 
