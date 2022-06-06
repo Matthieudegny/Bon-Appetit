@@ -7,20 +7,7 @@ import CardRecipes from '../CardRecipes/CardRecipes';
 import Skeleton from '@mui/material/Skeleton';
 import { actionFetchRecipes } from '../../../actions/actions';
 import { actionLoadingTrue } from '../../../actions/actions';
-
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Typography from '@mui/material/Typography';
-const theme = createTheme();
-
-theme.typography = {
-  fontSize: '5.2rem',
-  '@media (min-width:600px)': {
-    fontSize: '8.5rem',
-  },
-  [theme.breakpoints.up('md')]: {
-    fontSize: '8rem',
-  },
-};
+import { actionSearchValueNull } from '../../../actions/actions';
 
 function Recipes() {
 
@@ -37,8 +24,13 @@ function Recipes() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(actionLoadingTrue())
-    dispatch(actionFetchRecipes(searchValue))
+    if(searchValue === ""){
+      console.log("null")
+      dispatch(actionSearchValueNull())
+    } else {
+      dispatch(actionLoadingTrue())
+      dispatch(actionFetchRecipes(searchValue))
+    }
   }
 
   const recipesList = useSelector((state) => state.recipesReducer.recipesList);

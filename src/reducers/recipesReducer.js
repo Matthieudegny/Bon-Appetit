@@ -1,6 +1,7 @@
 import { SET_RECIPES } from '../actions/actions';
 import { SET_LOADING_TRUE } from '../actions/actions';
 import { SET_MESSAGE_NULL } from '../actions/actions';
+import { SET_MESSAGE_SEARCHVALUE_NULL } from '../actions/actions'
 
 const initialState = {
     recipesList : [],
@@ -32,6 +33,12 @@ const initialState = {
            just write the main ingredient, for exemple chicken, salmon, salad...",
           loading:false,
           recipesList: [],
+        }
+
+      case SET_MESSAGE_SEARCHVALUE_NULL:
+        return {
+          ...state,
+          message: "Before to search, please write something "
         }
         
       default:

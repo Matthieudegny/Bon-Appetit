@@ -7,7 +7,7 @@ import CardRecipes from '../CardRecipes/CardRecipes';
 import Skeleton from '@mui/material/Skeleton';
 import { actionFetchRecipesFridge } from '../../../actions/actions';
 import { actionLoadingFridgeTrue } from '../../../actions/actions';
-
+import { actionSearchValueFridgeNull } from '../../../actions/actions';
 
 function Fridge() {
 
@@ -23,9 +23,14 @@ function Fridge() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const listFridgeToFetch = createListIngredientsFridge(searchValue)
-    dispatch(actionLoadingFridgeTrue())
-    dispatch(actionFetchRecipesFridge(listFridgeToFetch))
+    if(searchValue === ""){
+      console.log("null")
+      dispatch(actionSearchValueFridgeNull())
+    } else {
+      const listFridgeToFetch = createListIngredientsFridge(searchValue)
+      dispatch(actionLoadingFridgeTrue())
+      dispatch(actionFetchRecipesFridge(listFridgeToFetch))
+    }
   }
 
   const createListIngredientsFridge = (searchValue) => {
@@ -66,21 +71,7 @@ function Fridge() {
       <div className="recipeFridge">
 
         <form action="" autoComplete="off" className="recipeFridge-inputContainer" onSubmit={handleSubmit}>
-          {/* <TextField 
-          onChange={handleSearchChange}
-          onSubmit={handleSubmit}
-          onClick={resetValue}
-          className='recipeFridge-input' 
-          id="outlined-uncontrolled"
-          inputProps={{style: {backgroundColor:"transparent",textAlign:"center",fontSize:"2vw",paddingTop:"4%"}}} // font size of input text
-          InputLabelProps={{style: {fontFamily: 'Architects Daughter',fontSize:"2vw",paddingLeft:"15%"}}} // font size of input label
-          label="Write here the ingredients you have" 
-          value = {searchValue}
-          variant="standard"
-          color="warning"
-          margin="dense"
-          size="normal" /> */}
-
+  
               <label
               className='recipeFridge-label'>
                 Write here the ingredients you need to cook

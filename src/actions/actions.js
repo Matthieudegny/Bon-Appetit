@@ -4,6 +4,7 @@ export const SET_RECIPES = 'SET_RECIPES';
 export const SET_LOADING_TRUE = 'SET_LOADING_TRUE'
 export const SET_LOADING_FALSE = 'SET_LOADING_FALSE'
 export const SET_MESSAGE_NULL = 'SET_MESSAGE_NULL'
+export const SET_MESSAGE_SEARCHVALUE_NULL = "SET_MESSAGE_SEARCHVALUE_NULL"
 //SUGGESTIONS
 export const FETCH_SUGGESTIONS = 'FETCH_SUGGESTIONS'
 export const SET_SUGGESTIONS = 'SET_SUGGESTIONS'
@@ -14,6 +15,8 @@ export const SET_LOADING_FRIDGE_TRUE = 'SET_LOADING_FRIDGE_TRUE'
 export const FETCH_RECIPESLIST_FRIDGE = 'FETCH_RECIPESLIST_FRIDGE'
 export const SET_MESSAGE_FRIDGE_NULL = 'SET_MESSAGE_FRIDGE_NULL'
 export const SET_RECIPES_FRIDGE = 'SET_RECIPES_FRIDGE'
+export const SET_MESSAGE_SEARCHVALUEFRIDGE_NULL = "SET_MESSAGE_SEARCHVALUEFRIDGE_NULL"
+
 
 //RECIPES
 
@@ -34,6 +37,11 @@ export const actionLoadingTrue = () => ({
 export const actionSetMessageNoResult = () => ({
   type : SET_MESSAGE_NULL
 });
+
+export  const actionSearchValueNull = () => ({
+  type: SET_MESSAGE_SEARCHVALUE_NULL
+})
+
 
 //SUGGESTIONS
 
@@ -74,5 +82,12 @@ export const actionSetRecipesListFridge = (recipesListFridge) => ({
   type: SET_RECIPES_FRIDGE,
   payload: recipesListFridge,
 })
+
+export  const actionSearchValueFridgeNull = () => ({
+  type: SET_MESSAGE_SEARCHVALUEFRIDGE_NULL
+})
+
+
+
 
 

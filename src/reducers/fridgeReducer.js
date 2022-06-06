@@ -1,6 +1,7 @@
 import { SET_RECIPES_FRIDGE } from '../actions/actions';
 import { SET_LOADING_FRIDGE_TRUE } from '../actions/actions';
 import { SET_MESSAGE_FRIDGE_NULL } from '../actions/actions';
+import { SET_MESSAGE_SEARCHVALUEFRIDGE_NULL } from '../actions/actions';
 
 const initialState = {
     recipesListFridge : [],
@@ -32,6 +33,12 @@ const initialState = {
           loading:false,
           recipesListFridge: [],
         }
+      
+      case SET_MESSAGE_SEARCHVALUEFRIDGE_NULL:
+      return {
+        ...state,
+        message: "Before to search, please write something "
+      }
         
       default:
         return state;
