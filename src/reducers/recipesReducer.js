@@ -29,8 +29,7 @@ const initialState = {
       case SET_MESSAGE_NULL:
         return {
           ...state,
-          message: "Sorry, we didn't find any recipes, whrite something else, if you don't know the exact name of your recipe, \
-           just write the main ingredient, for exemple chicken, salmon, salad...",
+          message: "Sorry, we didn't find any recipes, whrite something else, if you don't know the exact name of your recipe, just write the main ingredient, for exemple chicken, salmon, salad...",
           loading:false,
           recipesList: [],
         }

@@ -2,12 +2,12 @@ import './fridge.scss'
 import '../CardRecipes/cardRecipes.scss'
 import React, {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import TextField from '@mui/material/TextField';
 import CardRecipes from '../CardRecipes/CardRecipes';
 import Skeleton from '@mui/material/Skeleton';
 import { actionFetchRecipesFridge } from '../../../actions/actions';
 import { actionLoadingFridgeTrue } from '../../../actions/actions';
 import { actionSearchValueFridgeNull } from '../../../actions/actions';
+import ButtonGoUp from '../ButtonGoUp/ButtonGoUp';
 
 function Fridge() {
 
@@ -68,7 +68,7 @@ function Fridge() {
   }
 
     return(
-      <div className="recipeFridge">
+      <div className="recipeFridge" id="top-page">
 
         <form action="" autoComplete="off" className="recipeFridge-inputContainer" onSubmit={handleSubmit}>
   
@@ -149,6 +149,7 @@ function Fridge() {
         ) : (
 
         <div>
+
           {recipesList.map(({
               data
             }) => (
@@ -161,14 +162,24 @@ function Fridge() {
               explanations = {data.instructions? data.instructions : data.summary}
             /> 
           ))}
+
+          
+
         </div>
        
 
         )}
 
-       
+        {recipesList.length===0 ? (
+         
+         <>
+         </>
 
-        {/*ajouter bouton pour supprimer le contenu en haut + un suggestions aide? et un autre en bas pour retoruner à la recherceh*/}
+        ) : (
+     
+          <ButtonGoUp />
+          
+        )}
 
       </div>
     )

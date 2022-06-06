@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Skeleton from '@mui/material/Skeleton';
 import CardRecipes from '../CardRecipes/CardRecipes';
+import ButtonGoUp from '../ButtonGoUp/ButtonGoUp';
 
 function ReciepesIdeas() {
 
@@ -31,13 +32,12 @@ function ReciepesIdeas() {
 
     const suggestions = useSelector((state) => state.suggestionsReducer.suggestions);
     const loading = useSelector((state) => state.suggestionsReducer.loading);   
-   
 
     return(
 
-        <div className="suggestions">
+        <div className="suggestions" id="top-page">
 
-            <form action="" onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
 
                 <label
                 className='suggestions-label'>
@@ -155,15 +155,21 @@ function ReciepesIdeas() {
                         explanations = {suggestion.instructions? suggestion.instructions : suggestion.summary}
                         /> 
                     ))}
+                    
                 </div>
 
             )}
 
+            {suggestions.length===0 ? (
+            
+            <>
+            </>
 
-
-                {/*ajouter bouton pour supprimer le contenu en haut + un suggestions aide? et un autre en bas pour retoruner à la recherceh*/}
-
-              
+            ) : (
+        
+            <ButtonGoUp />
+            
+            )}
 
 
         </div>

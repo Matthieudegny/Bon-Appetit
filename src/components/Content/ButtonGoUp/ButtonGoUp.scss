@@ -1,0 +1,23 @@
+.container-buttonUp{
+    width: 100%;
+    display: flex;
+    justify-content: center;    
+}
+
+.buttonUp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(247, 207, 132);
+    font-family: 'Architects Daughter', 'cursive';
+    font-size: 1.5vw;
+    border-radius: 10px;
+    padding: 1%;
+    width: 20vw;
+    cursor: pointer;
+    margin-bottom: 3%;
+
+    &-logo{
+        padding-right: 2%;
+    }
+}
