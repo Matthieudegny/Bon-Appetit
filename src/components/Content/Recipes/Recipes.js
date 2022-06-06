@@ -8,6 +8,19 @@ import Skeleton from '@mui/material/Skeleton';
 import { actionFetchRecipes } from '../../../actions/actions';
 import { actionLoadingTrue } from '../../../actions/actions';
 
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
+const theme = createTheme();
+
+theme.typography = {
+  fontSize: '5.2rem',
+  '@media (min-width:600px)': {
+    fontSize: '8.5rem',
+  },
+  [theme.breakpoints.up('md')]: {
+    fontSize: '8rem',
+  },
+};
 
 function Recipes() {
 
@@ -39,22 +52,28 @@ function Recipes() {
     return(
       <div className="recipe">
 
-        <form action="" autoComplete="off" className="recipe-inputContainer" onSubmit={handleSubmit}>
-          <TextField 
-          onChange={handleSearchChange}
-          onSubmit={handleSubmit}
-          onClick={resetValue}
-          className='recipe-input' 
-          id="outlined-uncontrolled"
-          inputProps={{style: {backgroundColor:"transparent",textAlign:"center",fontSize:"2vw",paddingTop:"4%"}}} // font size of input text
-          InputLabelProps={{style: {fontFamily: 'Architects Daughter',fontSize:"2vw",paddingLeft:"15%"}}} // font size of input label
-          label="Write here the recipe you need" 
-          value = {searchValue}
-          variant="standard"
-          color="warning"
-          margin="dense"
-          size="normal" />
-        </form>
+            <form action="" autoComplete="off" className="recipe-inputContainer" onSubmit={handleSubmit}>
+             
+              <label
+              className='recipe-label'>
+                Write here the recipe you need
+              </label>
+
+              <input 
+              type="text"
+              onChange={handleSearchChange}
+              onSubmit={handleSubmit}
+              onClick={resetValue}
+              value = {searchValue}
+              className='recipe-input'  />
+
+              <button
+              type='submit'
+              className='recipe-button'>
+                Search
+              </button>
+          
+            </form>
 
         {message ? (
 

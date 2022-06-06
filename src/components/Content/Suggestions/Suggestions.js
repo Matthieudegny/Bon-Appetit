@@ -1,4 +1,5 @@
 import './suggestions.scss'
+import '../CardRecipes/cardRecipes.scss'
 import { actionFetchSuggestions } from '../../../actions/actions';
 import { actionLoadingSuggestionsTrue } from '../../../actions/actions';
 import { useState } from 'react';
@@ -38,43 +39,40 @@ function ReciepesIdeas() {
 
             <form action="" onSubmit={handleSubmit}>
 
-                <div className='suggestions-container-title'>
-                    <p className='suggestions-container-title-p'>Please Select the kind of meal you are searching</p>
-                </div>
-
-                <div className='suggestions-container-message'>
-                    <p>{message}</p>
-                </div>
+                <label
+                className='suggestions-label'>
+                    Select the kind of meal you are searching
+                </label>
 
                 <div className='suggestions-container-inputs'>
 
                     <div className='suggestions-inputs'>
-                        <input type="radio" name="suggestion" onClick={() => setValueSelected("breakfast")}/>
+                        <input type="radio" className='suggestions-inputs-radio' name="suggestion" onClick={() => setValueSelected("breakfast")}/>
                         <label htmlFor="breakfast">Breakfast</label>
                     </div>
 
                     <div className='suggestions-inputs'>
-                        <input type="radio" name="suggestion" onClick={() => setValueSelected("lunch")} />
+                        <input type="radio" className='suggestions-inputs-radio' name="suggestion" onClick={() => setValueSelected("lunch")} />
                         <label htmlFor="lunch">Lunch</label>
                     </div>
 
                     <div className='suggestions-inputs'>
-                        <input type="radio" name="suggestion" onClick={() => setValueSelected("dinner")}/>
+                        <input type="radio" className='suggestions-inputs-radio' name="suggestion" onClick={() => setValueSelected("dinner")}/>
                         <label htmlFor="dinner">Dinner</label>
                     </div>
 
                     <div className='suggestions-inputs'>
-                        <input type="radio" name="suggestion" onClick={() => setValueSelected("entree")}/>
+                        <input type="radio" className='suggestions-inputs-radio' name="suggestion" onClick={() => setValueSelected("entree")}/>
                         <label htmlFor="entree">Entree</label>
                     </div>
 
                     <div className='suggestions-inputs'>
-                        <input type="radio" name="suggestion" onClick={() => setValueSelected("main-dish")}/>
+                        <input type="radio" className='suggestions-inputs-radio' name="suggestion" onClick={() => setValueSelected("main-dish")}/>
                         <label htmlFor="main-dish">Main-dish</label>
                     </div>
 
                     <div className='suggestions-inputs'>
-                        <input type="radio" name="suggestion" onClick={() => setValueSelected("dessert")}/>
+                        <input type="radio" className='suggestions-inputs-radio' name="suggestion" onClick={() => setValueSelected("dessert")}/>
                         <label htmlFor="dessert">Dessert</label>
                     </div>
                     
@@ -86,6 +84,10 @@ function ReciepesIdeas() {
                     className="suggestions-button">
                         Search
                     </button>
+                </div>
+
+                <div className='suggestions-container-message'>
+                    <p>{message}</p>
                 </div>
                
 

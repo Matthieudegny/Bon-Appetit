@@ -30,7 +30,11 @@ function Fridge() {
 
   const createListIngredientsFridge = (searchValue) => {
 
-      const listIngredients = searchValue.split(' ')
+      const fridgeValue = searchValue.trim(); 
+
+      const listIngredients = fridgeValue.split(' ')
+
+      console.log(listIngredients)
 
       let listIngredientsFridge = []
 
@@ -62,7 +66,7 @@ function Fridge() {
       <div className="recipeFridge">
 
         <form action="" autoComplete="off" className="recipeFridge-inputContainer" onSubmit={handleSubmit}>
-          <TextField 
+          {/* <TextField 
           onChange={handleSearchChange}
           onSubmit={handleSubmit}
           onClick={resetValue}
@@ -70,12 +74,32 @@ function Fridge() {
           id="outlined-uncontrolled"
           inputProps={{style: {backgroundColor:"transparent",textAlign:"center",fontSize:"2vw",paddingTop:"4%"}}} // font size of input text
           InputLabelProps={{style: {fontFamily: 'Architects Daughter',fontSize:"2vw",paddingLeft:"15%"}}} // font size of input label
-          label="Write here the recipe you need" 
+          label="Write here the ingredients you have" 
           value = {searchValue}
           variant="standard"
           color="warning"
           margin="dense"
-          size="normal" />
+          size="normal" /> */}
+
+              <label
+              className='recipeFridge-label'>
+                Write here the ingredients you need to cook
+              </label>
+
+              <input 
+              type="text"
+              onChange={handleSearchChange}
+              onSubmit={handleSubmit}
+              onClick={resetValue}
+              value = {searchValue}
+              className='recipeFridge-input'  />
+
+              <button
+              type='submit'
+              className='recipeFridge-button'>
+                Search
+              </button>
+
         </form>
 
         {message ? (
