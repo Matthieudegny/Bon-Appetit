@@ -67,13 +67,23 @@ function ReciepesIdeas() {
                     </div>
 
                     <div className='suggestions-inputs'>
-                        <input type="radio" className='suggestions-inputs-radio' id="main-dish" name="suggestion" onClick={() => setValueSelected("main-dish")}/>
+                        <input type="radio" className='suggestions-inputs-radio' id="main-dish" name="suggestion" onClick={() => setValueSelected("main dish")}/>
                         <label htmlFor="main-dish">Main-dish</label>
                     </div>
 
                     <div className='suggestions-inputs'>
                         <input type="radio" className='suggestions-inputs-radio' id="dessert" name="suggestion" onClick={() => setValueSelected("dessert")}/>
                         <label htmlFor="dessert">Dessert</label>
+                    </div>
+
+                    <div className='suggestions-inputs'>
+                        <input type="radio" className='suggestions-inputs-radio' id="vegetarian" name="suggestion" onClick={() => setValueSelected("vegetarian,main course")}/>
+                        <label htmlFor="vegetarian">Vegetarian</label>
+                    </div>
+
+                    <div className='suggestions-inputs'>
+                        <input type="radio" className='suggestions-inputs-radio' id="soup" name="suggestion" onClick={() => setValueSelected("soup")}/>
+                        <label htmlFor="soup">Soup</label>
                     </div>
                     
                 </div>

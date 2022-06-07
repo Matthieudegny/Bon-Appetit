@@ -44,6 +44,17 @@ function Nav() {
       </NavLink>
 
       <NavLink
+          to="fridge"
+          className={getMenuClass}
+      >
+        
+        <div className="nav-items">
+          <KitchenIcon />
+          <div>Fridge</div>
+        </div>
+      </NavLink>
+
+      <NavLink
           to="recipesIdeas"
           className={getMenuClass}
       >
@@ -55,17 +66,6 @@ function Nav() {
         </div>
             
            
-      </NavLink>
-
-      <NavLink
-          to="fridge"
-          className={getMenuClass}
-      >
-        
-        <div className="nav-items">
-          <KitchenIcon />
-          <div>Fridge</div>
-        </div>
       </NavLink>
 
   </div>

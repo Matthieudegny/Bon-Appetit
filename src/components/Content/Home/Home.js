@@ -10,6 +10,7 @@ import recipesIdeasImage from '../../../public/recipesideas.jpg'
 function Home() {
     return(
     <div className="container">
+        
         <CardHome 
         image = {recipesImage}
         description = {"You know what you need, you have already an idea about what to cook, and you want to get a recipe"}
@@ -18,14 +19,7 @@ function Home() {
         logo = {<TakeoutDiningIcon />}
         nameLink = {"A particular recipe"}
         />
-        <CardHome 
-        image = {recipesIdeasImage}
-        description = {"You have no ideas about what to cook, you need inspiration, discover our suggestions"}
-        title = {'Suggestions'}
-        link = {'/recipesIdeas'}
-        logo = {<TipsAndUpdatesIcon />}
-        nameLink = {"Recipe suggestions"}
-        />
+       
         <CardHome 
         image = {fridgeImage}
         description = {"You have specific ingredients, and yu need some suggestions about how to cook"}
@@ -34,6 +28,16 @@ function Home() {
         logo = {<KitchenIcon />}
         nameLink = {"A recipe based on your food"}
         />
+
+        <CardHome 
+        image = {recipesIdeasImage}
+        description = {"You have no ideas about what to cook, you need inspiration, discover our suggestions"}
+        title = {'Suggestions'}
+        link = {'/recipesIdeas'}
+        logo = {<TipsAndUpdatesIcon />}
+        nameLink = {"Recipe suggestions"}
+        />
+
     </div>
     )
 }

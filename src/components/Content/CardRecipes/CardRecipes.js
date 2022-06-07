@@ -62,6 +62,9 @@ CardRecipes.propTypes = {
     title: PropTypes.string.isRequired,
     explanations: PropTypes.string.isRequired,
 };
-
+CardRecipes.defaultProps = {
+    image: '',
+    explanations: '',
+  };
 
 export default CardRecipes

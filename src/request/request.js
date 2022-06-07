@@ -5,6 +5,10 @@ export async function requestsRecipe(searchValue) {
       const APIKEY = "9aaebbeca05644af8ed5cc2c16e4508e";
 
       const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${searchValue}&number=5&apiKey=${APIKEY}`);
+      console.log(response.status)
+      if(response.status===402){
+
+      }
       const recipes = response.data.results
       let recipesList = [];
 
@@ -31,6 +35,7 @@ export async function requestSuggestions(searchValue) {
     const response = await axios.get(`https://api.spoonacular.com/recipes/random?number=5&tags=${searchValue}&apiKey=${APIKEY}`);
 
     const suggestionsList = response.data.recipes
+
     return suggestionsList
   }
   catch(err){
