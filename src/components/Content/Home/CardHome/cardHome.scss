@@ -28,20 +28,21 @@
 
 @media screen and (max-width: 900px) {
     .card{
-     width: 80%;
+     width: 85%;
      padding: 2.5vh 0;
-     margin-top: 0;
+     margin-top: 2.5%;
 
         &-image{
-            height: 30vh;
+            height: 25vh;
         }
 
         &-title{
+            height: 7vh;
             font-size: 3.5vw;
         }
 
         &-description{
-            height: 15vh;
+            height: 13vh;
             font-size: 3vw;
            
         }

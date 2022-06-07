@@ -93,7 +93,7 @@
         }
 
         &-button{
-            margin-top: 2%;
+            margin-top: 3.5%;
             font-size: 3.5vw;
         }
     }
@@ -107,6 +107,12 @@
         &-inputs{
             margin-top: 3%;  
             font-size: 3vw;
+            min-width: 15vw;
+        }
+
+        &-inputs-radio[type=radio]{
+            min-width: 2vw;
+            min-height: 2vw;            
         }
     
         &-label{
