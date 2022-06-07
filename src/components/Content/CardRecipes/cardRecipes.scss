@@ -60,6 +60,7 @@
         font-style: oblique;
         line-height: 150%;
         margin-top: 3%;
+        text-align: justify;
 
         a{
             color: black;
@@ -75,27 +76,37 @@
 }
 
 @media screen and (max-width: 900px) {
-    .cardRecipes-header{
-        flex-direction: column;
-    }
-    .cardRecipes-body{
-        flex-direction: column;
 
-        &-left{
-            text-align: center;
-            width: 100%;
+    .cardRecipes{
+        font-size: 2.5vw;
 
-            li{
-                list-style-type: none;
-                padding: 1%;
+        &-header{
+            flex-direction: column;
+        }
+
+        &-body{
+            flex-direction: column;
+    
+            &-left{
+                text-align: center;
+                width: 100%;
+    
+                li{
+                    list-style-type: none;
+                    padding: 1%;
+                }
+            }
+    
+            &-right{
+                width: 100%;
             }
         }
 
-        &-right{
-            width: 100%;
+        &-image{
+            max-width: 100%;
         }
     }
-    .cardRecipes-image{
-        max-width: 100%;
-    }
+   
+ 
+  
 }
