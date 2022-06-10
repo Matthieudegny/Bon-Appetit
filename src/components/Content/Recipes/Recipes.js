@@ -23,7 +23,6 @@ function Recipes() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if(searchValue === ""){
-      console.log("null")
       dispatch(actionSearchValueNull())
     } else {
       dispatch(actionLoadingTrue())

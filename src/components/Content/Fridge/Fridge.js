@@ -24,7 +24,6 @@ function Fridge() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if(searchValue === ""){
-      console.log("null")
       dispatch(actionSearchValueFridgeNull())
     } else {
       const listFridgeToFetch = createListIngredientsFridge(searchValue)
@@ -38,8 +37,6 @@ function Fridge() {
       const fridgeValue = searchValue.trim(); 
 
       const listIngredients = fridgeValue.split(' ')
-
-      console.log(listIngredients)
 
       let listIngredientsFridge = []
 

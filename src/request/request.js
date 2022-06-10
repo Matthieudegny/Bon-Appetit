@@ -5,7 +5,7 @@ export async function requestsRecipe(searchValue) {
       const APIKEY = "9aaebbeca05644af8ed5cc2c16e4508e";
 
       const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${searchValue}&number=5&apiKey=${APIKEY}`);
-      console.log(response.status)
+    
       if(response.status===402){
 
       }
@@ -17,7 +17,6 @@ export async function requestsRecipe(searchValue) {
         //attention response2.data.instructions peut être null, sans recette
         recipesList.push(response2)
       }      
-      console.log(recipesList)
       return recipesList
       
     }

@@ -8,11 +8,10 @@ const FridgeMiddleware = (store) => (next) => async (action) => {
     if(action.type === FETCH_RECIPESLIST_FRIDGE){
 
         const searchValue = action.payload
-        console.log(searchValue)
+    
 
         try{
 
-            console.log("fetch gone")
             const recipesListFridge = await requestsRecipeFridge(searchValue);
 
             if(recipesListFridge){

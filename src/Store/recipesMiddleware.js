@@ -11,7 +11,6 @@ const recipesMiddleware = (store) => (next) => async (action) => {
 
         try{
 
-            console.log("fetch gone")
             const recipesList = await requestsRecipe(searchValue);
 
             if(recipesList){
