@@ -1,6 +1,6 @@
 # Github Repos
 
-:strawberry: Recipe app
+:strawberry: Recipe app:
 
 <p align="center">
   <kbd>
@@ -13,6 +13,7 @@
 ## Technologies Used
 
 ✔️ REACT\
+✔️ REDUX\
 ✔️ SASS\
 ✔️ AXIOS\
 ✔️ REACT-ROUTER-DOM
