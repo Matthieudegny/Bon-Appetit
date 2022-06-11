@@ -1,6 +1,6 @@
 # Github Repos
 
-:mag_right: Repositories search app
+:strawberry: Recipe app
 
 <p align="center">
   <kbd>
@@ -14,7 +14,6 @@
 
 ✔️ REACT\
 ✔️ SASS\
-✔️ MATERIAL UI\
 ✔️ AXIOS\
 ✔️ REACT-ROUTER-DOM
 
