@@ -22,7 +22,7 @@ function Home() {
        
         <CardHome 
         image = {fridgeImage}
-        description = {"You have specific ingredients, and yu need some suggestions about how to cook"}
+        description = {"You have specific ingredients, and you need some suggestions about how to cook"}
         title = {'Fridge'}
         link = {'/fridge'}
         logo = {<KitchenIcon />}
