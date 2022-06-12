@@ -4,11 +4,10 @@ import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 function GoUp() {
 
     const backToTheTop= () => {
-        document.getElementById("top-page").scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-            inline: 'nearest'
-          })
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }
 
     return(
